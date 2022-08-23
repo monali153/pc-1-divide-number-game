@@ -1,19 +1,31 @@
 package com.jap;
 
+import java.util.Scanner;
+
 public class GameDemo {
 
-    public String divideByNumber(int firstNumber, int secondNumber){
-        //create local variable
-        int finalNumber = 0;
-        try {
-            //write logic
+    public static void main(String[] args) {
 
-            //Handle specific exception
-        }catch (Exception exception){
-          return exception.toString();
-        }
-        return String.valueOf(finalNumber);
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter first number");
+        int firstNumber = scanner.nextInt();
+        System.out.println("Enter second number");
+        int secondNumber = scanner.nextInt();
+
+        GameDemo gameDemo = new GameDemo();
+        System.out.println("Result = " + gameDemo.divideByNumber(firstNumber, secondNumber));
+
     }
 
+    public String divideByNumber(int firstNumber, int secondNumber) {
+        int finalNumber = 0;
+        try {
+            finalNumber = firstNumber / secondNumber;
+        } catch (ArithmeticException e) {
+            return e.toString();
+        }
+
+        return String.valueOf(finalNumber);
+    }
 
 }
